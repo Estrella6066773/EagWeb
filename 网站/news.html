@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻资讯 - Eagle Drive Technology</title>
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="news-navbar">
+        <div class="news-navbar-container">
+            <!-- Logo Section - Left -->
+            <div class="news-logo" onclick="window.location.href='index.html'">
+                <div class="news-logo-icon">
+                    <i class="fas fa-eagle"></i>
+                </div>
+                <div class="news-logo-text">
+                    <span class="news-logo-title">鹰驾科技</span>
+                    <span class="news-logo-subtitle">EAGLE DRIVE</span>
+                </div>
+            </div>
+
+            <!-- Links Section - Centered -->
+            <div class="news-nav-links">
+                <a href="index.html" class="news-nav-link">Home</a>
+                <span class="news-nav-separator">|</span>
+                <a href="index.html#products" class="news-nav-link">Products</a>
+                <span class="news-nav-separator">|</span>
+                <a href="solutions.html" class="news-nav-link">Solutions</a>
+                <span class="news-nav-separator">|</span>
+                <a href="news.html" class="news-nav-link active">News</a>
+                <span class="news-nav-separator">|</span>
+                <a href="index.html#about" class="news-nav-link">About Us</a>
+            </div>
+
+            <!-- Right side placeholder -->
+            <div class="news-nav-spacer"></div>
+        </div>
+    </nav>
+
+    <!-- 新闻列表页面 -->
+    <div id="news-list-page" class="news-page">
+        <!-- Hero Section -->
+        <div class="news-hero">
+            <img src="https://images.unsplash.com/photo-1545147986-a9d6f210df77?auto=format&fit=crop&q=80&w=1920" 
+                 alt="News Center Banner" class="news-hero-image">
+            <div class="news-hero-content">
+                <h1 class="news-hero-title">
+                    <span class="news-hero-quote">"</span>
+                    <span class="news-hero-main">新闻资讯</span>
+                    <span class="news-hero-sub">News Center</span>
+                    <span class="news-hero-quote">"</span>
+                </h1>
+                <div class="news-hero-line"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="news-content">
+            <!-- Featured Grid -->
+            <div class="news-featured-grid" id="featured-news"></div>
+
+            <!-- News List Container -->
+            <div class="news-list-container" id="regular-news"></div>
+
+            <!-- Pagination -->
+            <div class="news-pagination" id="pagination"></div>
+        </div>
+    </div>
+
+    <!-- 新闻详情页面 -->
+    <div id="news-detail-page" class="news-page" style="display: none;">
+        <!-- Detail Banner -->
+        <div class="news-detail-banner">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1920" 
+                 alt="Detail Banner" class="news-detail-banner-image">
+        </div>
+
+        <!-- Back button -->
+        <div class="news-detail-back">
+            <button onclick="showNewsList()" class="news-back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to News List</span>
+            </button>
+        </div>
+
+        <!-- Article Content -->
+        <article class="news-article" id="news-article-content"></article>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="news-fab-container">
+        <button class="news-fab">
+            <i class="fas fa-phone-alt"></i>
+        </button>
+        <button class="news-fab">
+            <i class="fas fa-th-large"></i>
+        </button>
+        <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="news-fab news-fab-top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="news-footer">
+        <div class="news-footer-content">
+            <p>©2024 - Eagle Technology (Shenzhen) Co., Ltd. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/news.js"></script>
+</body>
+</html>
