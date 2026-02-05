@@ -10,128 +10,95 @@ body {
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     background-color: #f9fafb;
+    /* 覆盖全局样式，news 页面不需要为 header 预留额外 padding */
+    padding-top: 0;
 }
 
-/* 导航栏样式 */
-.news-navbar {
+/* 覆盖 header 样式，使 news 页与 solutions 页保持一致 */
+.dark-header {
+    background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
+    width: 100%;
     top: 0;
-    left: 0;
-    right: 0;
-    background-color: #0a0a0a;
-    color: white;
-    z-index: 50;
-    padding: 0 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    height: 64px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    /* 取消全局设置的固定高度，按内容自适应 */
+    height: auto;
 }
 
-.news-navbar-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    height: 100%;
+.dark-header .container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px;
 }
 
-.news-logo {
+.logo-container img {
+    max-height: 60px;
+}
+
+.nav-links {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    cursor: pointer;
-    flex-shrink: 0;
+    list-style: none;
 }
 
-.news-logo-icon {
-    background-color: #e41e26;
-    border-radius: 50%;
-    padding: 0.5rem;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.nav-links li {
+    margin-left: 30px;
 }
 
-.news-logo-icon i {
-    color: white;
-    font-size: 1.25rem;
-}
-
-.news-logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.news-logo-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-    letter-spacing: -0.025em;
-    line-height: 1;
-}
-
-.news-logo-subtitle {
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    color: #d1d5db;
-    font-weight: 500;
-}
-
-.news-nav-links {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.875rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-}
-
-.news-nav-link {
-    padding: 0 1rem;
-    color: #f3f4f6;
+.nav-links a {
     text-decoration: none;
-    transition: color 0.2s;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
-.news-nav-link:hover,
-.news-nav-link.active {
-    color: #ef4444;
+.nav-links a:hover {
+    color: #0066cc;
 }
 
-.news-nav-link.active {
-    font-weight: 500;
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0066cc;
+    transition: width 0.3s ease;
 }
 
-.news-nav-separator {
-    color: #4b5563;
-    font-size: 10px;
+.nav-links a:hover::after {
+    width: 100%;
 }
 
-.news-nav-spacer {
-    width: 140px;
-    display: none;
+.nav-links a.active {
+    color: #0066cc;
 }
 
-@media (min-width: 768px) {
-    .news-nav-spacer {
-        display: block;
-    }
+.nav-links a.active::after {
+    width: 100%;
+    background-color: #0066cc;
 }
 
 /* Hero Section */
 .news-hero {
     position: relative;
-    height: 400px;
-    overflow: hidden;
-    margin-top: 64px;
+    /* 高度由图片本身决定，避免被拉伸或裁剪 */
+    height: auto;
+    overflow: visible;
+    /* 与 solutions 英雄区一致，为固定 header 预留空间 */
+    margin-top: 80px;
 }
 
 .news-hero-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.5);
+    /* 使用原图比例高度 */
+    height: auto;
+    object-fit: contain;
+    /* 取消暗色遮罩，使用原图亮度 */
+    filter: none;
 }
 
 .news-hero-content {
@@ -192,17 +159,19 @@ body {
 
 /* Main Content */
 .news-content {
-    max-width: 1280px;
+    /* 整个新闻区域再收窄一些，居中显示 */
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 5rem 1rem;
+    /* 整体上下留白缩小一些 */
+    padding: 3.5rem 1.5rem;
 }
 
 /* Featured Grid */
 .news-featured-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 4rem;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 @media (min-width: 1024px) {
@@ -217,7 +186,7 @@ body {
     flex-direction: column;
     height: 100%;
     background-color: white;
-    padding: 1.5rem;
+    padding: 1.25rem;
     border-radius: 2px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     transition: all 0.3s;
@@ -234,8 +203,9 @@ body {
 .news-featured-image {
     overflow: hidden;
     border-radius: 2px;
-    margin-bottom: 1.25rem;
-    aspect-ratio: 16/10;
+    margin-bottom: 1rem;
+    /* 再稍微降低高度，让卡片更小一些 */
+    aspect-ratio: 16/8;
 }
 
 .news-featured-image img {
@@ -250,7 +220,8 @@ body {
 }
 
 .news-featured-title {
-    font-size: 1.25rem;
+    /* 标题略小一点 */
+    font-size: 1.125rem;
     font-weight: bold;
     color: #1f2937;
     line-height: 1.375;
@@ -275,13 +246,13 @@ body {
 .news-featured-summary {
     font-size: 0.875rem;
     color: #6b7280;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     line-height: 1.625;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .news-featured-arrow {
@@ -310,7 +281,8 @@ body {
 .news-list-item {
     cursor: pointer;
     background-color: white;
-    padding: 2.5rem;
+    /* 列表项内边距缩小 */
+    padding: 1.75rem 2rem;
     position: relative;
     border-bottom: 1px solid #f3f4f6;
     transition: all 0.3s;
@@ -397,7 +369,8 @@ body {
 
 /* Pagination */
 .news-pagination {
-    margin-top: 5rem;
+    /* 分页与列表间距缩小 */
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -460,7 +433,7 @@ body {
     height: 160px;
     overflow: hidden;
     position: relative;
-    margin-top: 64px;
+    margin-top: 100px;
 }
 
 @media (min-width: 768px) {

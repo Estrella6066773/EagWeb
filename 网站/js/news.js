@@ -5,16 +5,16 @@ const NEWS_DATA = [
         title: "State Transportation Director Li Jing Lauds Eagle Drive Technology's 360° Driving System during Shenzhen Company Visit",
         date: '2021-05-07',
         summary: 'Provincial Department of Transportation Director Li Jing Visits Eagle Drive and Provides High Praise! On the afternoon of May 6th, Li Jing, Secretary of the Party Leadership Group and Director of the...',
-        imageUrl: 'https://picsum.photos/seed/eagle1/800/500',
+        imageUrl: 'news image/news-feature-1.jpg',
         subHeader: 'Provincial Department of Transportation Director Li Jing Visits Eagle Drive and Provides High Praise!',
         content: [
             'On the afternoon of May 6th, Li Jing, Secretary of the Party Leadership Group and Director of the Guangdong Provincial Department of Transportation, along with Deputy Director Zhang Quan and officials from various transportation management departments, visited the Guopingtong Construction Engineering Co., Ltd., the safety driving demonstration base for mack trucks in Guangdong Province, to conduct an onsite inspection and research on road transportation safety issues.',
             'The director spent significant time reviewing the 360° visual system and its impact on heavy vehicle safety. He noted that the integration of AI and high-definition imaging is crucial for the future of commercial transit.',
             'Eagle Drive Technology demonstrated their latest advancements in ADAS and blind-spot monitoring systems, which were met with enthusiasm from the delegation.'
         ],
+        // 详情页暂时也使用本地图片，后续可以按需要替换
         detailedImages: [
-            'https://picsum.photos/seed/eagle1_detail1/800/600',
-            'https://picsum.photos/seed/eagle1_detail2/800/600'
+            'news image/news-feature-1.jpg'
         ]
     },
     {
@@ -22,7 +22,7 @@ const NEWS_DATA = [
         title: "Fortune Global 500 Company XCMG Visits Eagle Drive Technology for Inspection and Tour",
         date: '2021-04-24',
         summary: 'Fortune Global 500 Company XCMG Visits Eagle Drive Technology for Inspection and Tour. On April 23, 2021, XCMG, a Fortune Global 500 company, ranked first in China\'s construction machinery industry a...',
-        imageUrl: 'https://picsum.photos/seed/eagle2/800/500',
+        imageUrl: 'news image/news-feature-2.jpg',
         content: [
             'The XCMG delegation was impressed by the facility\'s commitment to quality and innovation in the field of intelligent driving.',
             'A series of collaborative projects were discussed during the visit, focusing on the future of construction equipment automation.',

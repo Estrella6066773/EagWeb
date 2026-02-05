@@ -4,57 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新闻资讯 - Eagle Drive Technology</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/news.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- 导航栏 -->
-    <nav class="news-navbar">
-        <div class="news-navbar-container">
-            <!-- Logo Section - Left -->
-            <div class="news-logo" onclick="window.location.href='index.html'">
-                <div class="news-logo-icon">
-                    <i class="fas fa-eagle"></i>
-                </div>
-                <div class="news-logo-text">
-                    <span class="news-logo-title">鹰驾科技</span>
-                    <span class="news-logo-subtitle">EAGLE DRIVE</span>
-                </div>
+    <header class="dark-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Eagle Drive Logo">
             </div>
-
-            <!-- Links Section - Centered -->
-            <div class="news-nav-links">
-                <a href="index.html" class="news-nav-link">Home</a>
-                <span class="news-nav-separator">|</span>
-                <a href="index.html#products" class="news-nav-link">Products</a>
-                <span class="news-nav-separator">|</span>
-                <a href="solutions.html" class="news-nav-link">Solutions</a>
-                <span class="news-nav-separator">|</span>
-                <a href="news.html" class="news-nav-link active">News</a>
-                <span class="news-nav-separator">|</span>
-                <a href="index.html#about" class="news-nav-link">About Us</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="news.html" class="active">News</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-
-            <!-- Right side placeholder -->
-            <div class="news-nav-spacer"></div>
         </div>
-    </nav>
+    </header>
 
     <!-- 新闻列表页面 -->
     <div id="news-list-page" class="news-page">
         <!-- Hero Section -->
         <div class="news-hero">
-            <img src="https://images.unsplash.com/photo-1545147986-a9d6f210df77?auto=format&fit=crop&q=80&w=1920" 
+            <img src="news image/news-hero.jpg" 
                  alt="News Center Banner" class="news-hero-image">
-            <div class="news-hero-content">
-                <h1 class="news-hero-title">
-                    <span class="news-hero-quote">"</span>
-                    <span class="news-hero-main">新闻资讯</span>
-                    <span class="news-hero-sub">News Center</span>
-                    <span class="news-hero-quote">"</span>
-                </h1>
-                <div class="news-hero-line"></div>
-            </div>
         </div>
 
         <!-- Main Content -->
