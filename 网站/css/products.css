@@ -201,6 +201,11 @@
   padding-bottom: 5rem;
 }
 
+/* 仅放大“产品列表卡片”区域：保留左右边距，但给更大的可用宽度 */
+.prod-grid-section .prod-container {
+  max-width: 1400px;
+}
+
 .prod-grid-inner {
   padding-left: 2rem;
   padding-right: 2rem;
@@ -319,10 +324,10 @@
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   margin: 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  /* 取消截断：让标题完整显示 */
+  display: block;
+  overflow: visible;
+  white-space: normal;
   transition: color 0.3s;
 }
 
@@ -330,6 +335,11 @@
   .prod-card-title {
     font-size: 1rem;
   }
+}
+
+/* 标题更长时给更多高度，避免挤压布局 */
+.prod-card-footer {
+  min-height: 6.5rem;
 }
 
 .prod-card:hover .prod-card-title {

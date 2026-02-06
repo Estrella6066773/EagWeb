@@ -29,7 +29,7 @@ var PRODUCTS_DATA = [
   },
   {
     id: "4",
-    title: "Engineering Vehicle Blind Spot Warning System",
+    title: "Engineering vehicle radar warning system",
     image: "https://picsum.photos/seed/prod4/600/600",
     description: "Specifically designed for engineering vehicles like dump trucks and excavators. Features dual-directional safety protection and radar warning.",
     features: ["Dual-Directional Safety", "Radar Warning", "Geofence Flashing Alert", "Voice Reminders"]
@@ -78,7 +78,7 @@ var PRODUCTS_DATA = [
   },
   {
     id: "11",
-    title: "720° Panoramic Streaming Media Safety Driving Assistance",
+    title: "720° Panoramic Streaming Safety Driving Assistance System",
     image: "https://picsum.photos/seed/prod11/600/600",
     description: "The ultimate safety solution covering 720 degrees (interior and exterior). Features fisheye night vision and worry-free recording.",
     features: ["720 Degree View", "Fisheye Night Vision", "A-Pillar Blind Spot Removal", "Streaming Media"]
