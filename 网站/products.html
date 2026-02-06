@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品中心 - Eagle Drive Technology</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏（与 news.html 完全一致） -->
+    <header class="dark-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="Eagle Drive Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 产品列表页（与 products/Home.tsx 布局一致） -->
+    <div id="products-list-page" class="prod-list-page">
+        <!-- Hero：与 Home.tsx 一致 -->
+        <section class="prod-hero">
+            <img src="https://picsum.photos/seed/truckhero/1920/600" alt="Hero Banner" class="prod-hero-img">
+            <div class="prod-hero-gradient"></div>
+        </section>
+
+        <!-- Product Center Header -->
+        <section class="prod-header">
+            <div class="prod-container prod-header-inner">
+                <div class="prod-title-wrap">
+                    <h1 class="prod-watermark">product center</h1>
+                    <h2 class="prod-title">Product Center</h2>
+                    <div class="prod-title-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Highlight（与 Home.tsx 一致） -->
+        <section class="prod-feature">
+            <div class="prod-container prod-feature-inner">
+                <div class="prod-feature-img-wrap">
+                    <div class="prod-feature-img-inner">
+                        <img src="https://picsum.photos/seed/feature1/400/300" alt="Feature" class="prod-feature-img">
+                    </div>
+                </div>
+                <div class="prod-feature-text">
+                    <h3 class="prod-feature-heading">Product Features</h3>
+                    <p class="prod-feature-desc">All products are customized based on vehicle characteristics, with solutions flexibly configured according to business needs. We tailor configurations to customer requirements and the specific features of the equipment, ensuring product performance while maximizing cost savings for customers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid（由 js 填充） -->
+        <section class="prod-grid-section">
+            <div class="prod-container prod-grid-inner">
+                <div class="prod-grid" id="products-grid"></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 产品详情页（与 products/ProductDetail.tsx 布局一致） -->
+    <div id="product-detail-page" class="prod-detail-page" style="display: none;">
+        <div class="prod-detail-back-wrap">
+            <button type="button" id="products-back-btn" class="prod-back-btn">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Product List</span>
+            </button>
+        </div>
+        <div class="prod-detail-content" id="product-detail-content"></div>
+    </div>
+
+    <!-- 浮动按钮（与 products 风格一致） -->
+    <div class="prod-fab-wrap">
+        <a href="tel:075526909484" class="prod-fab" title="Phone"><i class="fas fa-phone-alt"></i></a>
+        <a href="products.html" class="prod-fab" title="Products"><i class="fas fa-th-large"></i></a>
+        <button type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="prod-fab prod-fab-top"><i class="fas fa-chevron-up"></i></button>
+    </div>
+
+    <!-- 页脚（与 news 一致） -->
+    <footer class="news-footer">
+        <div class="news-footer-content">
+            <p>©2024 - Eagle Technology (Shenzhen) Co., Ltd. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+</body>
+</html>
