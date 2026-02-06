@@ -7,7 +7,7 @@ var PRODUCTS_DATA = [
   {
     id: "1",
     title: "Streaming Media Electronic Rearview Mirror System",
-    image: "https://picsum.photos/seed/prod1/600/600",
+    image: "products image/products1.png",
     price: "¥ 999999.00",
     description: "In the field of commercial vehicles (buses, coaches, trucks), the large and tall body structure, combined with the inner wheel difference during turning, creates multiple visual blind spots for drivers. These blind spots pose potential accident hazards. The installation of electronic rearview mirrors can effectively improve driving safety.",
     features: ["HD Display", "AI Warning", "Night Vision", "Anti-Glare"],
@@ -16,70 +16,70 @@ var PRODUCTS_DATA = [
   {
     id: "2",
     title: "Commercial Vehicle AI Visual Safety Monitoring System",
-    image: "https://picsum.photos/seed/prod2/600/600",
+    image: "products image/products2.png",
     description: "Comprehensive visual monitoring system designed for commercial fleets. Features 360-degree AVM, DMS (Driver Monitoring System), and ADAS voice warnings.",
     features: ["DMS Driver Monitoring", "BSD Blind Spot Detection", "0.8t Computing Power", "Beidou Positioning"]
   },
   {
     id: "3",
     title: "Surround-View AI Early Warning System",
-    image: "https://picsum.photos/seed/prod3/600/600",
+    image: "products image/products3.png",
     description: "Advanced surround view system with 4G LTE connectivity. Provides real-time panoramic monitoring and early warning for potential hazards around the vehicle.",
     features: ["Panoramic AI Warning", "4G LTE Connectivity", "Real-time Monitoring", "Cloud Storage"]
   },
   {
     id: "4",
     title: "Engineering vehicle radar warning system",
-    image: "https://picsum.photos/seed/prod4/600/600",
+    image: "products image/products4.png",
     description: "Specifically designed for engineering vehicles like dump trucks and excavators. Features dual-directional safety protection and radar warning.",
     features: ["Dual-Directional Safety", "Radar Warning", "Geofence Flashing Alert", "Voice Reminders"]
   },
   {
     id: "5",
     title: "AI Visual Safety Monitoring System",
-    image: "https://picsum.photos/seed/prod5/600/600",
+    image: "products image/products5.png",
     description: "A robust safety solution integrating multiple cameras and AI processing to ensure safety in complex logistical environments.",
     features: ["Multi-channel Recording", "AI Object Detection", "Data Analysis", "Fleet Management"]
   },
   {
     id: "6",
     title: "Panoramic Mini Explosion-Proof Camera",
-    image: "https://picsum.photos/seed/prod6/600/600",
+    image: "products image/products6.png",
     description: "Compact and rugged camera designed for hazardous environments. Resistant to dust, water, and impact.",
     features: ["Explosion Proof", "Miniature Design", "Waterproof IP69K", "Wide Angle Lens"]
   },
   {
     id: "7",
     title: "360° Panoramic Safety Driving Assistance System",
-    image: "https://picsum.photos/seed/prod7/600/600",
+    image: "products image/products7.png",
     description: "Full panoramic view with no blind spots. 4-Channel HD recording and no-light night vision capabilities.",
     features: ["Full Panorama", "No Blind Spot", "4-Channel HD Recording", "No-Light Night Vision"]
   },
   {
     id: "8",
     title: "Panoramic Electronic Rearview Mirror System",
-    image: "https://picsum.photos/seed/prod8/600/600",
+    image: "products image/products8.png",
     description: "Replaces traditional mirrors with high-definition cameras and displays. Offers ultra-wide angle view and streaming rearview capabilities.",
     features: ["Ultra-wide Angle", "Streaming Rearview", "View Adjustment", "Fuel Saving Design"]
   },
   {
     id: "9",
     title: "Active Safety Driving Assistance System",
-    image: "https://picsum.photos/seed/prod9/600/600",
+    image: "products image/products9.png",
     description: "Strong algorithm performance ensuring stable and reliable safety assistance. Includes high-definition night vision and 24-hour monitoring.",
     features: ["HD Night Vision", "24-Hour Monitoring", "Unique Algorithm", "Military-Grade Quality"]
   },
   {
     id: "10",
     title: "360° Panoramic Driving Assistance System (4G Version)",
-    image: "https://picsum.photos/seed/prod10/600/600",
+    image: "products image/products10.png",
     description: "The 4G connected version of our standard panoramic system. Allows remote monitoring and data transmission.",
     features: ["4G Remote View", "GPS Tracking", "Real-time Alerts", "Cloud Backup"]
   },
   {
     id: "11",
     title: "720° Panoramic Streaming Safety Driving Assistance System",
-    image: "https://picsum.photos/seed/prod11/600/600",
+    image: "products image/products11.png",
     description: "The ultimate safety solution covering 720 degrees (interior and exterior). Features fisheye night vision and worry-free recording.",
     features: ["720 Degree View", "Fisheye Night Vision", "A-Pillar Blind Spot Removal", "Streaming Media"]
   }
@@ -190,7 +190,6 @@ var PRODUCTS_DATA = [
       '      </div>' +
       '      <div class="prod-detail-thumbs">' +
       '        <div class="prod-detail-thumb prod-detail-thumb-active"><img src="' + (p.image || "") + '" alt=""></div>' +
-      '        <div class="prod-detail-thumb"><img src="https://picsum.photos/seed/' + p.id + 'extra1/200/200" alt=""></div>' +
       '      </div>' +
       '    </div>' +
       '    <div class="prod-detail-info">' +
