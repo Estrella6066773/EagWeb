@@ -127,26 +127,40 @@ const NEWS_DATA = [
     },
     {
         id: '7',
-        title: "New Product Launch: Gen-3 Smart Sensing Platform for Commercial Fleets",
-        date: '2021-03-15',
-        summary: 'Unveiling our most advanced hardware platform to date, designed specifically for the rigorous demands of long-haul logistics...',
-        imageUrl: 'https://picsum.photos/seed/eagle7/800/500',
-        content: [
-            'The Gen-3 platform offers 40% more processing power compared to its predecessor.',
-            'Enhanced thermal management ensures reliable operation in extreme temperatures.',
-            'New AI chips allow for real-time driver fatigue monitoring with higher accuracy.'
+        title: "Eagle Drive Technology Chairman Zheng Zhiyu Invited to Participate in the 2021 Liuzhou Tour for High-End Talent Innovation and Entrepreneurship",
+        date: '2021-04-23',
+        time: '18:18',
+        summary: 'Eagle Drive Technology Chairman Zheng Zhiyu Invited to Participate in the 2021 Liuzhou Tour for High-End Talent Innovation and Entrepreneurship. On April 21, the "Liuzhou Tour for High-End Talent Innovation and Entrepreneurship 2021 and the Unveiling Ceremony of the Liuzhou High-End Talent Innovation and Entrepreneurship Demonstration Base" was successfully held in Liudong New District...',
+        imageUrl: 'news image/news-feature-15.jpg',
+        subHeader: 'Eagle Drive Technology Chairman Zheng Zhiyu Invited to Participate in the 2021 Liuzhou Tour for High-End Talent Innovation and Entrepreneurship',
+        contentBlocks: [
+            { type: 'text', value: 'On April 21, the "Liuzhou Tour for High-End Talent Innovation and Entrepreneurship 2021 and the Unveiling Ceremony of the Liuzhou High-End Talent Innovation and Entrepreneurship Demonstration Base" was successfully held in Liudong New District. The event was hosted by the Talent Work Leading Group of the CPC Liuzhou Municipal Committee and organized by the Organization Department of the CPC Liuzhou Municipal Committee, the Liuzhou Human Resources and Social Security Bureau, the Liuzhou Industry and Information Technology Bureau, the Liuzhou Science and Technology Bureau, the Liuzhou Investment Promotion Bureau, and the Liudong New District Administrative Committee, with support from the Liuzhou High-End Talent Innovation and Entrepreneurship Demonstration Base.' },
+            { type: 'image', value: 'news image/news-feature-15.jpg' },
+            { type: 'image', value: 'news image/news-feature-16.png' },
+            { type: 'text', value: 'This event focused on the construction of Liuzhou as a "Talent Strong City" and "Talent Highland." Attendees included Jiang Jie, Deputy Director and First-Class Inspector of the Guangxi Zhuang Autonomous Region Department of Human Resources and Social Security; Zhu Honghao, Director of the Professional and Technical Personnel Management Division of the same department; and Tan Zhixiong, Deputy Director of the Talent Service and Human Resources Training and Examination Center. Lu Song, a member of the Standing Committee of the Liuzhou Municipal Party Committee and Minister of the Organization Department, also attended the event. Along with 22 other high-end talents from home and abroad, Eagle Drive Technology Chairman Zheng Zhiyu was invited to participate as a high-level talent.' },
+            { type: 'image', value: 'news image/news-feature-17.jpg' },
+            { type: 'text', value: 'Eagle Drive Technology Chairman Zheng Zhiyu was interviewed by the media, where he shared the company\'s work, achievements, and future plans in the fields of artificial intelligence and vehicle-to-vehicle internet.' },
+            { type: 'image', value: 'news image/news-feature-18.jpg' },
+            { type: 'text', value: 'Jiang Jie, Deputy Director and First-Class Inspector of the Guangxi Zhuang Autonomous Region Department of Human Resources and Social Security, and Chairman Zheng Zhiyu.' }
         ]
     },
     {
         id: '8',
-        title: "Eagle Drive Partners with Leading Logistics Provider to Enhance Safety Standards",
-        date: '2021-02-28',
-        summary: 'A landmark partnership aimed at reducing traffic accidents by 30% through the implementation of intelligent safety systems...',
-        imageUrl: 'https://picsum.photos/seed/eagle8/800/500',
-        content: [
-            'The pilot program will involve equipping 500 trucks with Eagle Drive\'s full safety suite.',
-            'Data gathered from this partnership will be used to refine our predictive collision algorithms.',
-            'Both companies are committed to achieving a vision of zero accidents on the highway.'
+        title: "Avoid Visual Blind Spots: Essential Gear for Qingming Travel!",
+        date: '2021-04-02',
+        time: '16:46',
+        summary: 'Avoid Visual Blind Spots: Essential Gear for Qingming Travel! The eagerly anticipated Qingming holiday is just around the corner. In April, the world is full of warmth, blooming flowers, pink peaches, green willows, and birds singing among the growing grass...',
+        imageUrl: 'news image/news-feature-19.jpg',
+        subHeader: 'Avoid Visual Blind Spots: Essential Gear for Qingming Travel!',
+        contentBlocks: [
+            { type: 'text', value: 'The eagerly anticipated Qingming holiday is just around the corner. In April, the world is full of warmth, blooming flowers, pink peaches, green willows, and birds singing among the growing grass. It\'s the perfect time for a spring outing!' },
+            { type: 'text', value: 'For busy workers, this is a chance to finally enjoy some relaxing and carefree moments.' },
+            { type: 'text', value: 'While driving during your travels, it\'s important to ensure everyday protective measures and not overlook driving safety. Eagle Drive Technology\'s 360° panoramic safety driving assistance system uses high-sensitivity camera chips that can capture high-definition video around the vehicle in real-time, regardless of adverse weather conditions. It accurately reproduces the true colors of objects and provides a clear view of the surroundings, helping drivers avoid blind spots, reduce safety hazards, and enjoy a pleasant journey.' },
+            { type: 'image', value: 'news image/news-feature-19.jpg' },
+            { type: 'text', value: 'The Eagle Drive 360° panoramic safety driving assistance system uses four ultra-wide-angle HD night vision cameras installed around the vehicle—front, rear, left, and right—to capture real-time high-definition video of the vehicle\'s surroundings. Through software algorithms such as distortion correction, perspective transformation, image stitching, and fusion, these videos are processed into a seamless 360° bird\'s-eye panoramic view. This provides drivers with comprehensive 360° driving assistance, helping to eliminate visual blind spots and enabling vehicles to navigate complex urban roads with ease.' },
+            { type: 'text', value: 'Eagle Drive has a highly comprehensive range of commercial vehicle 360° surround view products. The product line covers various types including cost-effective/high-performance, four-channel/six-channel/eight-channel, 2D/3D, retrofit/pre-installed, catering to bus, coach, heavy-duty truck, mixer truck, bulldozer, sweeper, mining truck, and muck truck models. Most can be equipped with optional 4G remote monitoring systems. Especially for vehicles over 12 meters long and the problem of turning and splicing for trailers over 22 meters long, Eagle Drive introduces a six-camera stitching technology, leading globally in covering issues that traditional four-channel panoramic views cannot address.' },
+            { type: 'image', value: 'news image/news-feature-20.jpg' },
+            { type: 'text', value: 'Eagle Drive, as a one-stop solution provider for 360° panoramic systems, can tailor panoramic customization solutions based on specific driver needs. This allows us to create packages that best suit the requirements of individual vehicles, ensuring safety everywhere you go. With Eagle Drive by your side, we\'re always with you!' }
         ]
     }
 ];
@@ -258,9 +272,6 @@ function renderFeaturedNews() {
             <h3 class="news-featured-title">${news.title}</h3>
             <p class="news-featured-date">${news.date}</p>
             <p class="news-featured-summary">${news.summary}</p>
-            <div class="news-featured-arrow">
-                <i class="fas fa-long-arrow-alt-right"></i>
-            </div>
         </div>
     `).join('');
 }

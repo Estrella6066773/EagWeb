@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=optional');
 
 * {
     margin: 0;
@@ -12,21 +12,21 @@ body {
     background-color: #f9fafb;
 }
 
-/* Hero Section：紧贴 header，与 index 一致由 body padding-top 预留 header 高度 */
+/* Hero Section：紧贴 header，预留高度避免图片加载时整页下移造成“闪一下” */
 .news-hero {
     position: relative;
     height: auto;
+    min-height: 42vh;
     overflow: visible;
     margin-top: 0;
 }
 
 .news-hero-image {
     width: 100%;
-    /* 使用原图比例高度 */
     height: auto;
     object-fit: contain;
-    /* 取消暗色遮罩，使用原图亮度 */
     filter: none;
+    vertical-align: middle;
 }
 
 .news-hero-content {
@@ -87,11 +87,9 @@ body {
 
 /* Main Content */
 .news-content {
-    /* 整个新闻区域再收窄一些，居中显示 */
     max-width: 1100px;
     margin: 0 auto;
-    /* 整体上下留白缩小一些 */
-    padding: 3.5rem 1.5rem;
+    padding: 0.75rem 1.5rem 3.5rem;
 }
 
 /* Featured Grid */
@@ -100,6 +98,7 @@ body {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     margin-bottom: 3rem;
+    min-height: 320px;
 }
 
 @media (min-width: 1024px) {
@@ -520,6 +519,16 @@ body {
     max-width: 45%;
 }
 
+/* news-feature-15 与 news-feature-16 竖排 */
+.news-article-images-row:has(img[src*="news-feature-15"]):has(img[src*="news-feature-16"]) {
+    flex-direction: column;
+    max-width: 560px;
+}
+.news-article-images-row:has(img[src*="news-feature-15"]):has(img[src*="news-feature-16"]) .news-article-image {
+    flex: 1 1 auto;
+    max-width: 100%;
+}
+
 @media (max-width: 640px) {
     .news-article-images-row .news-article-image {
         flex: 1 1 100%;
@@ -542,16 +551,25 @@ body {
     display: block;
 }
 
-/* 单张图限制宽度，点击可放大 */
+/* 单张图限制宽度，点击可放大（控制除 news-feature-3、news-feature-8 外的所有单张图） */
 /* 单张图整体缩小约 30%（原 800px → 560px） */
 .news-article-content .news-article-image:not(.news-article-images-row .news-article-image) {
     max-width: 560px;
     margin: 2rem auto;
 }
 
-/* news-feature-3.jpg 放大显示（数据表更易读） */
-.news-article-content .news-article-image:has(img[src*="news-feature-3.jpg"]) {
-    max-width: 800px;
+/* news-feature-3.jpg 缩略图横屏占满整栏，不参与 560px 限制 */
+.news-article-content .news-article-image:has(img[src*="news-feature-3"]) {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 2rem 0 !important;
+    box-sizing: border-box;
+}
+.news-article-content .news-article-image:has(img[src*="news-feature-3"]) img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto;
+    display: block;
 }
 
 /* news-feature-8.jpg 再缩小 40%（560px → 336px） */
