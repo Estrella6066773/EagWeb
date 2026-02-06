@@ -10,86 +10,14 @@ body {
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
     background-color: #f9fafb;
-    /* 覆盖全局样式，news 页面不需要为 header 预留额外 padding */
-    padding-top: 0;
 }
 
-/* 覆盖 header 样式，使 news 页与 solutions 页保持一致 */
-.dark-header {
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    /* 取消全局设置的固定高度，按内容自适应 */
-    height: auto;
-}
-
-.dark-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.logo-container img {
-    max-height: 60px;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.nav-links a:hover {
-    color: #0066cc;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #0066cc;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a.active {
-    color: #0066cc;
-}
-
-.nav-links a.active::after {
-    width: 100%;
-    background-color: #0066cc;
-}
-
-/* Hero Section */
+/* Hero Section：紧贴 header，与 index 一致由 body padding-top 预留 header 高度 */
 .news-hero {
     position: relative;
-    /* 高度由图片本身决定，避免被拉伸或裁剪 */
     height: auto;
     overflow: visible;
-    /* 与 solutions 英雄区一致，为固定 header 预留空间 */
-    margin-top: 80px;
+    margin-top: 0;
 }
 
 .news-hero-image {
@@ -223,7 +151,7 @@ body {
     /* 标题略小一点 */
     font-size: 1.125rem;
     font-weight: bold;
-    color: #1f2937;
+    color: #000000;
     line-height: 1.375;
     transition: color 0.2s;
     display: -webkit-box;
