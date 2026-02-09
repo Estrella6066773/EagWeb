@@ -4,537 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>解决方案 - 鹰驾科技</title>
-    <style>
-        /* 使用您现有的基础CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #000;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 导航栏样式 - 复用现有样式 */
-        .dark-header {
-            background-color: rgba(0, 0, 0, 0.8);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .dark-header.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .dark-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .logo-container img {
-            max-height: 60px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #0066cc;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #0066cc;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #0066cc;
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-        }
-
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 5px 0;
-            transition: 0.4s;
-        }
-
-        /* 解决方案专属样式 */
-        .solutions-hero {
-            position: relative;
-            height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            margin-bottom: 50px;
-            text-align: center;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #0066cc;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 3px;
-            background-color: #0066cc;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* 项目背景部分 */
-        .project-background {
-            padding: 100px 0;
-            background-color: #0a0a0a;
-        }
-
-        .solutions-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        /* 解决方案卡片样式 */
-        .solution-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 350px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0, 102, 204, 0.2);
-            position: relative;
-        }
-
-        .solution-card:hover {
-            transform: translateY(-15px);
-            border-color: #0066cc;
-            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.3);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .solution-card:hover .card-image img {
-            transform: scale(1.1);
-        }
-
-        .card-content {
-            padding: 25px;
-            color: #fff;
-        }
-
-        .card-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #0066cc;
-        }
-
-        .card-content p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        .card-badge {
-            display: inline-block;
-            padding: 5px 15px;
-            background: rgba(0, 102, 204, 0.2);
-            color: #0066cc;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        /* 解决方案详情部分 */
-        .solutions-details {
-            padding: 100px 0;
-            background-color: #050505;
-        }
-
-        .detail-grid {
-            display: grid;
-            gap: 40px;
-        }
-
-        .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 15px;
-            border: 1px solid rgba(0, 102, 204, 0.2);
-        }
-
-        .detail-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .detail-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .detail-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .detail-text {
-            flex: 1;
-            color: #fff;
-        }
-
-        .detail-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #0066cc;
-        }
-
-        .detail-text p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .feature-list li {
-            padding: 8px 0;
-            color: #fff;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #0066cc;
-            font-weight: bold;
-        }
-
-        /* 全屏图片查看器 */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            width: auto;
-            height: auto;
-        }
-
-        .modal-image {
-            max-width: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-nav:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .prev-btn {
-            left: -80px;
-        }
-
-        .next-btn {
-            right: -80px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: -60px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 36px;
-            cursor: pointer;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .image-indicator {
-            position: absolute;
-            bottom: -60px;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .indicator-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .indicator-dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 1024px) {
-            .detail-item {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .detail-item:nth-child(even) {
-                flex-direction: column;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            
-            .prev-btn {
-                left: 20px;
-            }
-            
-            .next-btn {
-                right: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.95);
-                padding: 20px;
-                gap: 15px;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .solutions-hero {
-                height: 50vh;
-            }
-            
-            .modal-nav {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-            }
-            
-            .close-btn {
-                top: 10px;
-                right: 10px;
-                font-size: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .solution-card {
-                min-width: 100%;
-            }
-            
-            .detail-item {
-                padding: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/solutions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- 固定侧边栏图标 -->
+    <div class="fixed-sidebar">
+        <!-- 返回顶部 -->
+        <div class="sidebar-icon" id="backToTop" title="返回顶部">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <!-- 联系电话 -->
+        <div class="sidebar-icon" id="phoneIcon" title="联系电话">
+            <i class="fas fa-phone"></i>
+        </div>
+        <!-- 微信客服 -->
+        <div class="sidebar-icon" id="wechatIcon" title="微信客服">
+            <i class="fab fa-weixin"></i>
+        </div>
+    </div>
+
+    <!-- 电话弹出框 -->
+    <div class="contact-popup phone-popup" id="phonePopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h4>联系我们</h4>
+                <span class="close-popup">&times;</span>
+            </div>
+            <div class="popup-body">
+                <div class="phone-info">
+                    <i class="fas fa-phone-alt phone-icon"></i>
+                    <div class="phone-number">0755-2690-9484</div>
+                    <p>工作日 9:00-18:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 微信弹出框 -->
+    <div class="contact-popup wechat-popup" id="wechatPopup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h4>微信客服</h4>
+                <span class="close-popup">&times;</span>
+            </div>
+            <div class="popup-body">
+                <div class="qrcode-container">
+                    <img src="images/qrcode.png" alt="微信客服二维码" class="qrcode-img">
+                    <p>扫一扫二维码</p>
+                    <p class="consult-text">扫描二维码进行咨询</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- 导航栏 -->
     <header class="dark-header">
         <div class="container">
             <div class="logo-container">
-                <img src="images/logo.png" alt="Eagle Drive Logo">
+                <img src="solution image/logo.png" alt="鹰驾科技">
             </div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="solutions.html" class="active">Solutions</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">产品</a></li>
+                    <li><a href="solutions.html" class="active">解决方案</a></li>
+                    <li><a href="news.html">新闻</a></li>
+                    <li><a href="applications.html">应用场景</a></li>
+                    <li><a href="about.html">关于我们</a></li>
                 </ul>
             </nav>
             <div class="menu-toggle">
@@ -545,139 +83,325 @@
         </div>
     </header>
 
-    <!-- 英雄区域 -->
-    <section class="solutions-hero">
-        <div class="hero-content">
-            <h1>智能驾驶解决方案</h1>
-            <p>基于360°全景ADAS摄像头，提供全方位的行车安全与智能驾驶解决方案</p>
+    <!-- 英雄区域（与 products 风格一致） -->
+    <section class="sol-hero">
+        <img src="solution image/解决方案背景.png" alt="解决方案 Banner" class="sol-hero-img">
+        <div class="sol-hero-gradient"></div>
+    </section>
+
+    <!-- Solutions Header -->
+    <section class="sol-header">
+        <div class="sol-container sol-header-inner">
+            <div class="sol-title-wrap">
+                <h1 class="sol-watermark">solution</h1>
+                <h2 class="sol-title">Solutions</h2>
+                <div class="sol-title-line"></div>
+            </div>
         </div>
     </section>
 
+    
+
+
     <!-- 项目背景 -->
     <section class="project-background">
-        <div class="container">
+        <div class="sol-container">
             <div class="section-title">
-                <h2>项目背景</h2>
+                <h2>PROJECT BACKGROUND</h2>
             </div>
             
             <div class="solutions-container">
                 <!-- 解决方案1 -->
                 <div class="solution-card" data-index="0">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="交通强国建设纲要" 
-                             data-full="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                        <img src="solution image/1.png" 
+                             alt="Outline for a Strong Transportation Country" 
+                             data-full="solution image/1.png">
+                        <div class="img-count-badge"><span>2</span><i class="fas fa-image"></i></div>
                     </div>
                     <div class="card-content">
-                        <h3>《交通强国建设纲要》</h3>
-                        <p>建设交通强国是以习近平同志为核心的党中央立足国情、着眼全局、面向未来作出的重大战略决策，是建设现代化经济体系的先行领域。</p>
-                        <span class="card-badge">政策导向</span>
+                        <h3>Outline for a Strong Transportation Country</h3>
+                        <p>Key national outline focusing on building a strong transportation country and elevating overall industry capability.</p>
+                        <span class="card-badge">Policy</span>
                     </div>
                 </div>
 
                 <!-- 解决方案2 -->
                 <div class="solution-card" data-index="1">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="智能交通发展规划" 
-                             data-full="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                        <img src="solution image/2.png" 
+                             alt="Development and Reform Industry" 
+                             data-full="solution image/2.png">
+                        <div class="img-count-badge"><span>2</span><i class="fas fa-image"></i></div>
                     </div>
                     <div class="card-content">
-                        <h3>发展规划</h3>
-                        <p>国家发展和改革总基调，国务院常务会议决定，安全生产法等相关政策推动智能交通系统发展。</p>
-                        <span class="card-badge">战略规划</span>
+                        <h3>Development and Reform Industry</h3>
+                        <p>Notice on innovating intelligent vehicle development strategy, guiding industry transformation and standards.</p>
+                        <span class="card-badge">Industry</span>
                     </div>
                 </div>
 
                 <!-- 解决方案3 -->
                 <div class="solution-card" data-index="2">
                     <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="智能汽车发展战略" 
-                             data-full="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80">
+                        <img src="solution image/3.png" 
+                             alt="State Council Work Safety Committee" 
+                             data-full="solution image/3.png">
+                        <div class="img-count-badge"><span>2</span><i class="fas fa-image"></i></div>
                     </div>
                     <div class="card-content">
-                        <h3>智能汽车发展战略</h3>
-                        <p>国务院安全生产委员会文件，第七次会议相关决定，印发《智能汽车的发展战略》的通知，推动汽车产业智能化升级。</p>
-                        <span class="card-badge">技术升级</span>
+                        <h3>State Council Work Safety Committee</h3>
+                        <p>Three-year action plan on national work safety, establishing governance framework and compliance requirements.</p>
+                        <span class="card-badge">Safety</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 解决方案详情 -->
+
+    <section class="sol-text-panels">
+        <div class="sol-container sol-text-panels-inner">
+            <div class="sol-text-panel">
+                <h3 class="sol-text-title">Outline for Building a Transportation Powerhouse</h3>
+                <div class="sol-text-body">
+                    <p>In January 2017, the Ministry of Transport launched the "Smart Transportation Action Plan (2017-2020)" to pilot smart highway systems and enhance regional road management.</p>
+                    <p>By February 2018, efforts focused on integrating road transport, upgrading highway systems with 5G for low-latency communication, and advancing vehicle road coordination.</p>
+                    <p>In May 2019, reforms included abolishing toll stations at provincial expressway borders and implementing electronic toll services.</p>
+                    <p>In September 2019, the "Outline for Building a Transportation Powerhouse" emphasized integrating transportation, energy, and information networks to build advanced infrastructure. It highlighted developing intelligent connected vehicles and fostering a comprehensive industrial chain for autonomous driving and smart transportation systems.</p>
+                </div>
+            </div>
+            <div class="sol-text-panel">
+                <h3 class="sol-text-title">Enhancing Smart Highway Service Capabilities: The Foundation of Vehicle-to-Everything (V2X)</h3>
+                <div class="sol-text-body">
+                    <p>In 2018, China advanced regulations and standards for intelligent connected vehicles:</p>
+                    <p>April: MIIT, Ministry of Public Security, and Ministry of Transport issued management specifications for intelligent connected vehicle road testing.</p>
+                    <p>October: MIIT regulated the 5905–5925MHz frequency band for LTE V2X communication in smart vehicles, ensuring a dedicated bandwidth of 20MHz.</p>
+                    <p>November 17: The National Manufacturing Strategy Leading Group’s Committee on Connected Vehicles signed a framework agreement to strengthen cooperation in V2X standards across automotive, intelligent transportation, communications, and traffic management sectors.</p>
+                    <p>December 27: MIIT’s Science and Technology Department released an action plan for developing the connected vehicle industry. It included plans to deploy LTE-V2X on expressways and urban roads, facilitating vehicle-road coordination and enhancing intelligent infrastructure capabilities integrating sensing, communication, and computing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 左图右文（复刻示例） -->
+    <section class="sol-overview">
+        <div class="sol-container sol-overview-inner">
+            <div class="sol-overview-image-wrap">
+                <div class="sol-overview-image-inner">
+                    <img src="solution image/image.png" alt="Fleet Overview" class="sol-overview-image">
+                </div>
+            </div>
+            <div class="sol-overview-text">
+                <h3 class="sol-overview-title">Overview of How Eagle Drive Technology Will Expand</h3>
+                <p class="sol-overview-desc">Customized installation of Eagle Drive products according to enterprise vehicle characteristics, flexibly configured solutions to maximize cost savings and enhance business profitability.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="solutions-details">
         <div class="container">
-            <div class="section-title">
-                <h2>解决方案详情</h2>
+            <section class="sol-text-right-image">
+                <div class="sol-tri-inner">
+                    <div class="sol-tri-text">
+                        
+                        <p>C-ITS : Cooperative - (Intelligent Transportation System）
+</p>
+                    </div>
+                    <div class="sol-tri-image">
+                        <img src="solution image/4.png" alt="C-ITS Diagram" class="zoomable" data-full="solution image/4.png">
+                    </div>
+                </div>
+            </section>
+
+            <section class="sol-three-rows-gallery">
+                <div class="sol-row">
+                    <div class="sol-row-icon">
+                        <img src="solution image/7.png" alt="The Driver Is Alert">
+                        <span>The Driver Is Alert</span>
+                    </div>
+                    <div class="sol-row-gallery">
+                        <img src="solution image/1.1.jpg" alt="Road Collage 1" class="zoomable" data-full="solution image/1.1.jpg">
+                        <img src="solution image/1.2.jpg" alt="Road Collage 2" class="zoomable" data-full="solution image/1.2.jpg">
+                    </div>
+                </div>
+                <div class="sol-row">
+                    <div class="sol-row-icon">
+                        <img src="solution image/8.png" alt="The Road Is Visible">
+                        <span>The Road Is Visible</span>
+                    </div>
+                    <div class="sol-row-gallery">
+                        <img src="solution image/1.3.jpg" alt="Road Collage 1" class="zoomable" data-full="solution image/1.3.jpg">
+                        <img src="solution image/1.4.jpg" alt="Road Collage 2" class="zoomable" data-full="solution image/1.4.jpg">
+                    </div>
+                </div>
+                <div class="sol-row">
+                    <div class="sol-row-icon">
+                        <img src="solution image/9.png" alt="Visible Supervision">
+                        <span>Visible Supervision</span>
+                    </div>
+                    <div class="sol-row-gallery">
+                        <img src="solution image/1.5.jpg" alt="Supervision Collage 1" class="zoomable" data-full="solution image/1.5.jpg">
+                        <img src="solution image/1.6.jpg" alt="Supervision Collage 2" class="zoomable" data-full="solution image/1.6.jpg">
+                    </div>
+                </div>
+            </section>
+
+            <section class="sol-left-image-right-text">
+                <div class="sol-lirt-inner">
+                    <div class="sol-lirt-image">
+                        <img src="solution image/6.png" alt="Equipment Scheme Diagram" class="zoomable" data-full="solution image/6.jpg">
+                    </div>
+                    <div class="sol-lirt-text">
+                        <h3>Equipment Scheme Diagram</h3>
+                        <p>360° Surround View · Intelligent On-Board Terminal · Roadside Intelligent Terminal</p>
+                        <p>Monitoring Platform · Mobile Monitoring</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <section class="sol-monitor">
+        <div class="container">
+            <h2 class="sol-monitor-title">Introduction to the Monitoring Platform</h2>
+            <div class="sol-mon-slider">
+                <button class="sol-mon-nav sol-mon-prev" aria-label="prev">&#10094;</button>
+                <div class="sol-mon-track" id="solMonTrack">
+                    <img src="solution image/2.2.png" alt="Monitoring Overview 1" class="zoomable" data-full="solution image/2.2.png">
+                    <img src="solution image/2.3.png" alt="Monitoring Overview 1" class="zoomable" data-full="solution image/2.3.png">
+                    <img src="solution image/2.4.png" alt="Monitoring Overview 1" class="zoomable" data-full="solution image/2.4.png">
+                    <img src="solution image/2.5.png" alt="Monitoring Overview 1" class="zoomable" data-full="solution image/2.5.png">
+                    <img src="solution image/2.6.png" alt="Monitoring Overview 1" class="zoomable" data-full="solution image/2.6.png">
+                    <img src="solution image/2.7.png" alt="Monitoring Overview 3" class="zoomable" data-full="solution image/2.7.png">
+                </div>
+                <button class="sol-mon-nav sol-mon-next" aria-label="next">&#10095;</button>
             </div>
-            
-            <div class="detail-grid">
-                <!-- 方案详情1 -->
-                <div class="detail-item">
-                    <div class="detail-image">
-                        <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="解决方案1">
-                    </div>
-                    <div class="detail-text">
-                        <h3>交通强国战略解决方案</h3>
-                        <p>基于《交通强国建设纲要》的政策导向，我们提供完整的智能交通系统解决方案，包括交通监控、数据分析、智能预警等功能。</p>
-                        <ul class="feature-list">
-                            <li>360°全景监控系统</li>
-                            <li>实时交通数据分析</li>
-                            <li>智能预警与决策支持</li>
-                            <li>多传感器融合技术</li>
-                        </ul>
-                    </div>
+            <div class="sol-monitor-columns">
+                <div class="sol-monitor-col">
+                    <h3>Government Supervision Platform</h3>
+                    <p>Established following Ministry of Transport directives (JTTF [2016] No. 160), this platform is used by regulatory bodies to oversee and assess road transport management agencies, enterprises, and satellite service providers. Its goals include enhancing dynamic supervision of key operating vehicles, improving data quality, ensuring reliable system operation, and enforcing monitoring responsibilities among road transport entities.</p>
                 </div>
-
-                <!-- 方案详情2 -->
-                <div class="detail-item">
-                    <div class="detail-image">
-                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w-600&q=80" alt="解决方案2">
-                    </div>
-                    <div class="detail-text">
-                        <h3>智能交通发展规划</h3>
-                        <p>根据国家发展规划，我们制定了分阶段实施计划，从试点城市推广到全国范围应用，确保项目的顺利实施。</p>
-                        <ul class="feature-list">
-                            <li>分阶段部署计划</li>
-                            <li>标准与规范制定</li>
-                            <li>试点城市推广</li>
-                            <li>全国范围应用</li>
-                        </ul>
-                    </div>
+                <div class="sol-monitor-col">
+                    <h3>Enterprise Monitoring Platform</h3>
+                    <p>Also known as an enterprise video surveillance platform, it is utilized by transport companies for intelligent safety and control over their vehicles. This platform includes functionalities such as proactive safety alert data storage and retrieval, real-time vehicle monitoring, handling of vehicle alarm information, proactive safety situation analysis, driver safety profiles, and management of vehicle installation information. It operates under government supervision platform guidelines.</p>
                 </div>
-
-                <!-- 方案详情3 -->
-                <div class="detail-item">
-                    <div class="detail-image">
-                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="解决方案3">
-                    </div>
-                    <div class="detail-text">
-                        <h3>智能汽车发展战略</h3>
-                        <p>推动汽车产业智能化升级，通过先进的传感器融合技术和人工智能算法，实现L3级自动驾驶功能。</p>
-                        <ul class="feature-list">
-                            <li>自动驾驶技术集成</li>
-                            <li>车路协同系统</li>
-                            <li>智能网联汽车平台</li>
-                            <li>安全与可靠性保障</li>
-                        </ul>
-                    </div>
+                <div class="sol-monitor-col">
+                    <h3>Third‑Party Safety Monitoring Platform</h3>
+                    <p>Also known as a third-party platform, road transport management agencies authorize it to specialized third-party safety monitoring organizations. Utilizing advanced technology, this real-time monitoring platform assists regulatory authorities in conducting 24/7 continuous monitoring of key operating vehicles. It focuses on detecting non-compliant behaviors of drivers, issuing timely alarms, and notifying relevant transportation enterprise leaders and safety managers via SMS, mobile apps, phone calls, and other methods for prompt corrective actions. Additionally, it generates data analysis reports for road transport enterprises and regulatory authorities, aiding in establishing effective rules for identifying and addressing violations while maintaining safety responsibilities.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 全屏图片查看器 -->
+         <section class="sol-overview">
+        <div class="sol-container sol-overview-inner">
+            <div class="sol-overview-image-wrap">
+                <div class="sol-overview-image-inner">
+                    <img src="solution image/10.png" alt="Fleet Overview" class="sol-overview-10">
+                </div>
+            </div>
+            <div class="sol-overview-text">
+                <h3 class="sol-overview-title">Vehicle Terminal Function</h3>
+            
+            </div>
+        </div>
+    </section>
+        <section class="sol-text-right-image">
+                <div class="sol-tri-inner">
+                    <div class="sol-tri-text">
+                        <p>Scheme Architect</p>
+                    </div>
+                    <div class="sol-tri-image">
+                        <img src="solution image/11.png" alt="C-ITS Diagram" class="zoomable" data-full="solution image/11.png">
+                    </div>
+                </div>
+            </section>
+
+        <section class="vehicle-gallery">
+            <div class="container">
+                <div class="vg-grid">
+                    <div class="vg-item vg-i1">
+                        <img src="solution image/3.1.jpg" alt="车辆图片1" class="zoomable" data-full="solution image/3.1.jpg">
+                    </div>
+                    <div class="vg-item vg-i2">
+                        <img src="solution image/3.2.jpg" alt="车辆图片2" class="zoomable" data-full="solution image/3.2.jpg">
+                    </div>
+                    <div class="vg-item vg-i3">
+                        <img src="solution image/3.3.jpg" alt="车辆图片3" class="zoomable" data-full="solution image/3.3.jpg">
+                    </div>
+                    <div class="vg-item vg-i4">
+                        <img src="solution image/3.4.jpg" alt="车辆图片4" class="zoomable" data-full="solution image/3.4.jpg">
+                    </div>
+                    <div class="vg-item vg-i5">
+                        <img src="solution image/3.5.jpg" alt="车辆图片5" class="zoomable" data-full="solution image/3.5.jpg">
+                    </div>
+                    <div class="vg-item vg-i7">
+                        <img src="solution image/3.6.jpg" alt="车辆图片7" class="zoomable" data-full="solution image/3.7.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+    <section class="partners-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>合作<br>合作伙伴</h2>
+            </div>
+            
+            <div class="partners-container">
+                <div class="partners-carousel">
+                    <div class="carousel-wrapper">
+                        <div class="partners-grid" id="partnersGrid">
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-nav prev-btn" id="prevPartner">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav next-btn" id="nextPartner">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="pagination" id="partnerPagination">
+                    <button class="page-btn prev-page" id="prevPage">Previous</button>
+                    <div class="page-numbers">
+                        <span class="page-number active" data-page="1">1</span>
+                        <span class="page-number" data-page="2">2</span>
+                        <span class="page-number" data-page="3">3</span>
+                        <span class="page-number" data-page="4">4</span>
+                    </div>
+                    <button class="page-btn next-page" id="nextPage">Next</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="partner-modal-overlay" id="partnerModal">
+        <button class="partner-close-btn" id="closePartnerModal">&times;</button>
+        <div class="partner-modal-content">
+            <img class="partner-modal-image" id="partnerModalImage" src="" alt="">
+            <button class="partner-modal-nav partner-prev-btn" id="partnerPrevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="partner-modal-nav partner-next-btn" id="partnerNextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="partner-name" id="partnerName"></div>
+        </div>
+    </div>
+
+    <!-- 解决方案图片查看器 -->
     <div class="modal-overlay" id="imageModal">
         <button class="close-btn" id="closeModal">&times;</button>
         <div class="modal-content">
             <img class="modal-image" id="modalImage" src="" alt="">
             <button class="modal-nav prev-btn" id="prevBtn">
-                <span>&#8249;</span>
+                <i class="fas fa-chevron-left"></i>
             </button>
             <button class="modal-nav next-btn" id="nextBtn">
-                <span>&#8250;</span>
+                <i class="fas fa-chevron-right"></i>
             </button>
             <div class="image-indicator" id="imageIndicator">
                 <div class="indicator-dot active" data-index="0"></div>
@@ -692,14 +416,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='50'%3E%3Crect width='150' height='50' fill='%230066cc'/%3E%3Ctext x='15' y='35' font-family='Arial' font-size='18' fill='white'%3E鹰驾科技%3C/text%3E%3C/svg%3E" 
-                         alt="鹰驾科技">
+                    <img src="images/logo-white.png" alt="鹰驾科技">
                 </div>
                 <div class="footer-links">
                     <a href="index.html">首页</a>
                     <a href="products.html">产品</a>
                     <a href="solutions.html">解决方案</a>
-                    <a href="news.html">新闻</a>
                     <a href="applications.html">应用场景</a>
                     <a href="about.html">关于我们</a>
                 </div>
@@ -710,264 +432,6 @@
         </div>
     </footer>
 
-    <script>
-        // 页面加载完成后执行
-        window.addEventListener('DOMContentLoaded', function() {
-            // 导航栏滚动效果
-            const header = document.querySelector('.dark-header');
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const bars = document.querySelectorAll('.bar');
-            
-            // 监听滚动事件
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
-            // 汉堡菜单切换
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                
-                // 汉堡菜单动画
-                bars[0].classList.toggle('transform', navLinks.classList.contains('active'));
-                bars[1].classList.toggle('opacity-0', navLinks.classList.contains('active'));
-                bars[2].classList.toggle('transform', navLinks.classList.contains('active'));
-                
-                if (navLinks.classList.contains('active')) {
-                    bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-                    bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-                    bars[1].style.opacity = '0';
-                } else {
-                    bars[0].style.transform = 'none';
-                    bars[2].style.transform = 'none';
-                    bars[1].style.opacity = '1';
-                }
-            });
-            
-            // 平滑滚动
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                        
-                        // 关闭移动菜单
-                        if (navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                            bars[0].style.transform = 'none';
-                            bars[2].style.transform = 'none';
-                            bars[1].style.opacity = '1';
-                        }
-                    }
-                });
-            });
-            
-            // 解决方案卡片悬停效果
-            const solutionCards = document.querySelectorAll('.solution-card');
-            
-            solutionCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-15px)';
-                    this.style.boxShadow = '0 20px 40px rgba(0, 102, 204, 0.3)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                });
-            });
-            
-            // 详情卡片悬停效果
-            const detailItems = document.querySelectorAll('.detail-item');
-            
-            detailItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.boxShadow = '0 10px 30px rgba(0, 102, 204, 0.3)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.boxShadow = 'none';
-                });
-            });
-            
-            // 全屏图片查看功能
-            const solutionCardsAll = document.querySelectorAll('.solution-card');
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const closeModal = document.getElementById('closeModal');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const imageIndicator = document.getElementById('imageIndicator');
-            
-            let currentIndex = 0;
-            const images = [];
-            
-            // 收集图片数据
-            solutionCardsAll.forEach((card, index) => {
-                const img = card.querySelector('img');
-                images.push({
-                    thumbnail: img.src,
-                    full: img.getAttribute('data-full'),
-                    title: card.querySelector('h3').textContent,
-                    description: card.querySelector('p').textContent
-                });
-                
-                // 点击卡片打开全屏查看
-                card.addEventListener('click', function() {
-                    currentIndex = index;
-                    openModal();
-                });
-            });
-            
-            // 获取所有指示点
-            const dots = document.querySelectorAll('.indicator-dot');
-            
-            // 更新指示点状态
-            function updateDots() {
-                dots.forEach((dot, index) => {
-                    if (index === currentIndex) {
-                        dot.classList.add('active');
-                    } else {
-                        dot.classList.remove('active');
-                    }
-                });
-            }
-            
-            // 打开模态框
-            function openModal() {
-                updateModalImage();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                updateDots();
-            }
-            
-            // 关闭模态框
-            function closeImageModal() {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            
-            // 更新模态框图片
-            function updateModalImage() {
-                const currentImage = images[currentIndex];
-                modalImage.src = currentImage.full;
-                modalImage.alt = currentImage.title;
-                
-                // 图片加载完成后的回调
-                modalImage.onload = function() {
-                    console.log('图片加载完成:', currentImage.title);
-                };
-                
-                modalImage.onerror = function() {
-                    console.error('图片加载失败:', currentImage.full);
-                    modalImage.src = currentImage.thumbnail; // 如果高清图加载失败，回退到缩略图
-                };
-            }
-            
-            // 显示上一张图片
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + images.length) % images.length;
-                updateModalImage();
-                updateDots();
-            }
-            
-            // 显示下一张图片
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateModalImage();
-                updateDots();
-            }
-            
-            // 事件监听
-            closeModal.addEventListener('click', closeImageModal);
-            
-            prevBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                showPrevImage();
-            });
-            
-            nextBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                showNextImage();
-            });
-            
-            // 点击模态框背景关闭
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeImageModal();
-                }
-            });
-            
-            // 点击指示点切换图片
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    currentIndex = index;
-                    updateModalImage();
-                    updateDots();
-                });
-            });
-            
-            // 键盘导航
-            document.addEventListener('keydown', function(e) {
-                if (!modal.classList.contains('active')) return;
-                
-                switch(e.key) {
-                    case 'Escape':
-                        closeImageModal();
-                        break;
-                    case 'ArrowLeft':
-                        showPrevImage();
-                        break;
-                    case 'ArrowRight':
-                        showNextImage();
-                        break;
-                }
-            });
-            
-            // 触摸滑动支持
-            let touchStartX = 0;
-            modal.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            modal.addEventListener('touchend', function(e) {
-                const touchEndX = e.changedTouches[0].screenX;
-                const swipeThreshold = 50;
-                const diffX = touchStartX - touchEndX;
-                
-                if (Math.abs(diffX) > swipeThreshold) {
-                    if (diffX > 0) {
-                        showNextImage();
-                    } else {
-                        showPrevImage();
-                    }
-                }
-            });
-            
-            // 图片预加载
-            function preloadImages() {
-                images.forEach((img) => {
-                    const image = new Image();
-                    image.src = img.full;
-                });
-            }
-            
-            // 页面加载完成后预加载图片
-            window.addEventListener('load', preloadImages);
-        });
-    </script>
+    <script src="js/solutions.js"></script>
 </body>
 </html>
