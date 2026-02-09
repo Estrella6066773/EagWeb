@@ -17,6 +17,7 @@ var PRODUCTS_DATA = [
     id: "2",
     title: "TS-B0101 Commercial Vehicle AI Visual Safety Monitoring System",
     image: "products image/products2.png",
+    price: "¥ 999999.00",
     description: "Comprehensive visual monitoring system designed for commercial fleets. Features 360-degree AVM, DMS (Driver Monitoring System), and ADAS voice warnings.",
     features: ["DMS Driver Monitoring", "BSD Blind Spot Detection", "0.8t Computing Power", "Beidou Positioning"],
     customBodyHtml:
@@ -99,10 +100,7 @@ var PRODUCTS_DATA = [
       '  </div>' +
       '</div>' +
       '<div class="prod-detail-section">' +
-      '  <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.5rem;">' +
-      '    <h3 class="prod-detail-h3" style="margin-bottom: 0;">Product Drawings</h3>' +
-      '    <span style="font-size: 1rem; font-weight: bold; color: #374151;">Interface Definitions Backplane</span>' +
-      '  </div>' +
+      '  <h3 class="prod-detail-h3" style="margin-bottom: 0.5rem;">Product Drawings</h3>' +
       '  <div class="prod-detail-figure">' +
       '    <div class="prod-detail-fig-inner">' +
       '      <div class="prod-detail-figure-img">' +
@@ -110,24 +108,29 @@ var PRODUCTS_DATA = [
       '      </div>' +
       '    </div>' +
       '  </div>' +
+      '  <div style="margin-top: 0.5rem;">' +
+      '    <span style="font-size: 1rem; font-weight: bold; color: #374151;">Interface Definitions Backplane</span>' +
+      '  </div>' +
       '</div>' +
       '<div class="prod-detail-section">' +
       '  <h3 class="prod-detail-h3">C3030 HF 2*11 22 PIN Interface</h3>' +
       '  <div class="prod-detail-table-wrap">' +
       '    <table class="prod-detail-table">' +
+      '      <thead>' +
+      '        <tr><th>Serial No.</th><th>PIN sequence</th><th>Remarks</th><th>Serial No.</th><th>PIN sequence</th><th>Remarks</th></tr>' +
+      '      </thead>' +
       '      <tbody>' +
-      '        <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>4</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>5</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>6</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>7</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>8</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>9</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>10</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>11</td><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>12</td><td></td><td></td><td></td><td></td><td></td></tr>' +
+      '        <tr><td>1</td><td>232-RX</td><td></td><td>12</td><td>MIC-P/232-TX</td><td></td></tr>' +
+      '        <tr><td>2</td><td>AHD signal output</td><td>Video output</td><td>13</td><td>Camera 3 signal</td><td>DMS</td></tr>' +
+      '        <tr><td>3</td><td>AHD signal ground</td><td></td><td>14</td><td>Camera 3 power supply</td><td></td></tr>' +
+      '        <tr><td>4</td><td>Camera 4 power supply/AHD signal power supply</td><td>BSD</td><td>15</td><td>Camera 3 power supply ground</td><td></td></tr>' +
+      '        <tr><td>5</td><td>Camera 4 signal</td><td></td><td>16</td><td>Camera 5 signal</td><td>Front view</td></tr>' +
+      '        <tr><td>6</td><td>Camera 4/6 power supply ground</td><td></td><td>17</td><td>Camera 5 power supply</td><td></td></tr>' +
+      '        <tr><td>7</td><td>Camera 6 signal</td><td>Rear view</td><td>18</td><td>Camera 5/7 power supply ground</td><td></td></tr>' +
+      '        <tr><td>8</td><td>Camera 6 power supply</td><td></td><td>19</td><td>Camera 7 signal</td><td>Left front view</td></tr>' +
+      '        <tr><td>9</td><td>Camera 8 power supply ground</td><td>Right front view</td><td>20</td><td>Camera 7 power supply</td><td></td></tr>' +
+      '        <tr><td>10</td><td>Camera 8 signal</td><td></td><td>21</td><td>CAN-L</td><td></td></tr>' +
+      '        <tr><td>11</td><td>Camera 8 power supply</td><td></td><td>22</td><td>CAN-H</td><td></td></tr>' +
       '      </tbody>' +
       '    </table>' +
       '  </div>' +
@@ -136,20 +139,22 @@ var PRODUCTS_DATA = [
       '  <h3 class="prod-detail-h3">C3030 HF 2*12 24 PIN Interface</h3>' +
       '  <div class="prod-detail-table-wrap">' +
       '    <table class="prod-detail-table">' +
+      '      <thead>' +
+      '        <tr><th>Serial No.</th><th>PIN sequence</th><th>Serial No.</th><th>PIN sequence</th></tr>' +
+      '      </thead>' +
       '      <tbody>' +
-      '        <tr><td>1</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>2</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>3</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>4</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>5</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>6</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>7</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>8</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>9</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>10</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>11</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>12</td><td></td><td></td><td></td></tr>' +
-      '        <tr><td>13</td><td></td><td></td><td></td></tr>' +
+      '        <tr><td>1</td><td>Power supply input</td><td>13</td><td>IO output 1</td></tr>' +
+      '        <tr><td>2</td><td>Power supply ground</td><td>14</td><td>232-RX / 485_A2</td></tr>' +
+      '        <tr><td>3</td><td>Relay input</td><td>15</td><td>232-TX / 485_B2</td></tr>' +
+      '        <tr><td>4</td><td>Relay output</td><td>16</td><td>IO input 3</td></tr>' +
+      '        <tr><td>5</td><td>ACC input</td><td>17</td><td>IR signal</td></tr>' +
+      '        <tr><td>6</td><td>IO input 1</td><td>18</td><td>12V seat switch output</td></tr>' +
+      '        <tr><td>7</td><td>IO input 2</td><td>19</td><td>12V seat switch detection</td></tr>' +
+      '        <tr><td>8</td><td>232-RX / 485A</td><td>20</td><td>12V/5V output ground / speed sensor ground</td></tr>' +
+      '        <tr><td>9</td><td>232-TX / 485B</td><td>21</td><td>12V output power supply / speed sensor power supply</td></tr>' +
+      '        <tr><td>10</td><td>SpeakerSPK-P</td><td>22</td><td>5V output powersupply</td></tr>' +
+      '        <tr><td>11</td><td>SpeakerSPK-N</td><td>23</td><td>Speed sensorsignal</td></tr>' +
+      '        <tr><td>12</td><td>MicrophoneMIC-N</td><td>24</td><td>MicrophoneMIC-P</td></tr>' +
       '      </tbody>' +
       '    </table>' +
       '  </div>' +
@@ -158,17 +163,73 @@ var PRODUCTS_DATA = [
       '  <h3 class="prod-detail-h3">II. Component Parts</h3>' +
       '  <div class="prod-detail-table-wrap">' +
       '    <table class="prod-detail-table">' +
+      '      <thead>' +
+      '        <tr><th>Serial No.</th><th>Part name</th><th>Picture</th><th>Quantity</th><th>Remarks</th></tr>' +
+      '      </thead>' +
       '      <tbody>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
-      '        <tr><td></td><td></td><td></td><td></td><td></td></tr>' +
+      '        <tr>' +
+      '          <td>1</td>' +
+      '          <td>Main unit</td>' +
+      '          <td><img src="products image/2-3-1.jpg" alt="Main unit" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 unit</td>' +
+      '          <td>AI visual function, vehicle networking function</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>2</td>' +
+      '          <td>Power communication cable</td>' +
+      '          <td><img src="products image/2-3-2.jpg" alt="Power communication cable" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>24PIN plug: Power positive and negative, ACC, relay input/output, 3 IO inputs, 3 IO outputs, RS232/RS485 interfaces, speaker, microphone interfaces, 12V output, 5V output, seatswitch, speed sensor</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>3</td>' +
+      '          <td>Video cable</td>' +
+      '          <td><img src="products image/2-3-3.jpg" alt="Video cable" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>22PIN plug:1-channel AHD HD video output, 6-channel AHD video input, RS485, CAN interface</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>4</td>' +
+      '          <td>GPS antenna</td>' +
+      '          <td><img src="products image/2-3-4.jpg" alt="GPS antenna" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>Optional accessory</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>5</td>' +
+      '          <td>4G antenna</td>' +
+      '          <td><img src="products image/2-3-5.jpg" alt="4G antenna" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>Optional accessory</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>6</td>' +
+      '          <td>WiFi antenna</td>' +
+      '          <td><img src="products image/2-3-6.jpg" alt="WiFi antenna" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>Optional accessory</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>7</td>' +
+      '          <td>Remote control</td>' +
+      '          <td><img src="products image/2-3-7.jpg" alt="Remote control" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>Accessory</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>8</td>' +
+      '          <td>Infrared receiver (3PIN)</td>' +
+      '          <td><img src="products image/2-3-8.png" alt="Infrared receiver (3PIN)" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>Accessory</td>' +
+      '        </tr>' +
+      '        <tr>' +
+      '          <td>9</td>' +
+      '          <td>External speaker</td>' +
+      '          <td><img src="products image/2-3-9.png" alt="External speaker" style="max-width:160px;height:auto;"></td>' +
+      '          <td>1 pcs</td>' +
+      '          <td>2W 8Ω, accessory</td>' +
+      '        </tr>' +
       '      </tbody>' +
       '    </table>' +
       '  </div>' +

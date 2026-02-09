@@ -771,7 +771,7 @@
 
 .prod-detail-table td:first-child,
 .prod-detail-table th:nth-child(4) {
-  text-align: center;
+  text-align: left;
 }
 
 /* Block diagram - grid-cols-3 green/blue/orange/purple */
