@@ -633,22 +633,29 @@
   padding: 8px;
   background: #fff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  width: 100%;
+  width: auto;
+  max-width: 800px; /* Limit maximum width for better visual coordination */
+  margin: 0 auto;
 }
 
 .prod-detail-figure-img {
   position: relative;
-  aspect-ratio: 2/1;
+  /* aspect-ratio: 2/1; Removed to allow full image display */
   background: #f9fafb;
   border: 1px dashed #d1d5db;
   overflow: hidden;
+  height: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .prod-detail-figure-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 1;
+  display: block;
 }
 
 .prod-detail-figcap {
@@ -893,4 +900,26 @@
   color: #9ca3af;
   font-size: 0.75rem;
   letter-spacing: -0.025em;
+}
+
+/* 新增样式支持 */
+.prod-detail-h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+.prod-detail-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prod-detail-list li {
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
