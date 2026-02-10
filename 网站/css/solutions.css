@@ -8,8 +8,8 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #000;
+    color: #000000;
+    background-color: #f9fafb;
     overflow-x: hidden;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #fff;
+    color: #000000;
     font-weight: bold;
     transition: color 0.3s ease;
     position: relative;
@@ -98,7 +98,7 @@ body {
 .bar {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #000000;
     margin: 5px 0;
     transition: 0.4s;
 }
@@ -322,7 +322,14 @@ body {
 /* 项目背景部分 */
 .project-background {
     padding: 100px 0;
-    background-color: #121212;
+    background-color: #000000;
+}
+/* Project Background 内标题与文字颜色覆盖为深色背景下的高对比 */
+.project-background .section-title h2 {
+    color: #ffffff;
+}
+.project-background .solution-card .card-content {
+    color: #ffffff;
 }
 
 /* 解决方案容器 */
@@ -351,7 +358,7 @@ body {
 .sol-hero {
     position: relative;
     width: 100%;
-    background-color: #18181b;
+    background-color: #000000;
 }
 
 .sol-hero-img {
@@ -365,7 +372,7 @@ body {
 .sol-hero-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, #121212, transparent 50%, transparent);
+    background: linear-gradient(to top, #000000, transparent 50%, transparent);
     pointer-events: none;
 }
 
@@ -374,11 +381,14 @@ body {
     padding-top: 4rem;
     padding-bottom: 3rem;
     overflow: hidden;
-    background-color: #121212;
+    background-color: #000000;
     background-image: url('solution image/背景-solution.jpg');
     background-size: cover;
     background-position: center;
 }
+.sol-header .sol-title { color: #ffffff; }
+.sol-header .sol-title-line { background: #ffffff; }
+.sol-header .sol-watermark { color: #ffffff; }
 
 .sol-header-inner {
     text-align: center;
@@ -457,8 +467,17 @@ body {
 
 /* 文字双栏板块 */
 .sol-text-panels {
-    background-color: #121212;
+    background-color: #000000;
     padding: 3rem 0;
+}
+.sol-text-panels .sol-text-title {
+    color: #ffffff;
+}
+.sol-text-panels .sol-text-panel {
+    color: #d1d5db;
+}
+.sol-text-panels .sol-text-body p {
+    color: #d1d5db;
 }
 .sol-text-panels-inner {
     display: grid;
@@ -486,8 +505,15 @@ body {
 
 /* 左图右文概览 */
 .sol-overview {
-    background-color: #121212;
+    background-color: #000000;
     padding: 2.5rem 0 3.5rem;
+}
+/* Overview 内文字颜色覆盖为深色背景下的高对比 */
+.sol-overview .sol-overview-title {
+    color: #ffffff;
+}
+.sol-overview .sol-overview-desc {
+    color: #cccccc;
 }
 .sol-overview-inner {
     display: grid;
@@ -542,13 +568,13 @@ body {
 
 /* 居中大图 */
 .sol-bus-hero {
-    background-color: #121212;
+    background-color: #f9fafb;
     padding: 2rem 0 3rem;
 }
 .sol-bus-hero-img {
     width: 100%;
     height: auto;
-    max-width: 700px;
+    max-width: 1200px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -609,7 +635,7 @@ body {
 /* 解决方案详情部分 */
 .solutions-details {
     padding: 100px 0;
-    background-color: #050505;
+    background-color: #f9fafb;
 }
 
 .detail-grid {
@@ -687,7 +713,7 @@ body {
 }
 
 .sol-text-right-image {
-    background-color: #121212;
+    background-color: #f9fafb;
     padding: 3rem 0;
 }
 .sol-tri-inner {
@@ -727,7 +753,7 @@ body {
 }
 
 .sol-three-rows-gallery {
-    background-color: #121212;
+    background-color: #f9fafb;
     padding: 2.5rem 0;
 }
 .sol-row {
@@ -764,7 +790,7 @@ body {
 }
 
 .sol-left-image-right-text {
-    background-color: #121212;
+    background-color: #f9fafb;
     padding: 3rem 0 3.5rem;
 }
 .sol-lirt-inner {
@@ -796,7 +822,7 @@ body {
 }
  
 .sol-monitor {
-    background-color: #121212;
+    background-color: #f9fafb;
     padding: 3rem 0 3rem;
 }
 .sol-monitor-title {
@@ -873,7 +899,7 @@ body {
 }
 /* 合作伙伴部分 */
 .vehicle-gallery {
-    background-color: #121212;
+    background-color: #f9fafb;
     padding: 3rem 0;
 }
 .vehicle-gallery .container {
@@ -923,9 +949,228 @@ body {
     .vg-item img { height: auto; }
 }
 /* 合作伙伴部分 */
+.sol-tabs {
+    background-color: #f9fafb;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+.tabs-row {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.tab-btn {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 120px;
+    font-weight: 600;
+}
+.tab-btn:hover {
+    background: #e5e7eb;
+}
+.tab-btn.active {
+    background: #2f2f2f;
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+.tab-panels {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.tab-panel {
+    display: none;
+    color: #e5e7eb;
+}
+.tab-panel.active {
+    display: block;
+}
+.tab-panel h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.tab-panel h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.tab-panel p {
+    color: #9ca3af;
+    line-height: 1.7;
+}
+/* 合作伙伴部分 bus*/
+.bus-list {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.bus-item strong {
+    color: #fff;
+}
+.bus-img-center {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+.bus-img-center img {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+.bus-img-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.bus-img-row figure { 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+.bus-img-row figcaption {
+    text-align: left;
+    color: #9ca3af;
+    margin-top: 0.5rem;
+}
+.caption-list {
+    text-align: left;
+    color: #d1d5db;
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+}
+.caption-list li { 
+    margin: 0.25rem 0; 
+    list-style: disc; 
+}
+.caption-list li strong { color: #ffffff; }
+.bus-img-row img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+ 
+.bus-img-row-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.bus-img-row-3 img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+@media (max-width: 768px) {
+    .bus-img-row {
+        grid-template-columns: 1fr;
+    }
+    .bus-img-row img {
+        height: auto;
+        object-fit: contain;
+    }
+    .bus-img-row-3 {
+        grid-template-columns: 1fr;
+    }
+    .bus-img-row-3 img {
+        height: auto;
+        object-fit: contain;
+    }
+}
+ 
+.bus-equipment-image {
+    text-align: center;
+    margin: 1rem 0 2rem;
+}
+.bus-equipment-image img {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+ 
+.bus-section-title {
+    color: #ffffff;
+}
+ 
+.comparison-table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 2rem;
+    border-collapse: collapse;
+    background: #ffffff;
+    color: #111827;
+}
+.comparison-table th, .comparison-table td {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    vertical-align: top;
+}
+.comparison-table th {
+    text-align: center;
+    font-weight: 700;
+}
+ 
+.bus-features h4 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+}
+.bus-features-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+    margin-bottom: 1.5rem;
+}
+.feature-box {
+    background: #ffffff;
+    color: #111827;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    min-height: 64px;
+    display: grid;
+    place-items: center;
+    transition: background-color 0.2s ease;
+}
+.feature-box:hover {
+    background: #e5e7eb;
+}
+.feature-span2 { grid-column: span 2; }
+.feature-span3 { grid-column: span 3; }
+@media (max-width: 1024px) {
+    .bus-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .feature-span2, .feature-span3 {
+        grid-column: span 2;
+    }
+}
+/* 合作伙伴部分 */
 .partners-section {
     padding: 100px 0;
-    background-color: #121212;
+    background-color: #f9fafb;
     border-top: 1px solid rgba(0, 102, 204, 0.1);
 }
 

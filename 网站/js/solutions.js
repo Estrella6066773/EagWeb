@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 监听滚动事件
     window.addEventListener('scroll', function() {
+        if (!header) return;
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
@@ -21,24 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 汉堡菜单切换
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        
-        // 汉堡菜单动画
-        bars[0].classList.toggle('transform', navLinks.classList.contains('active'));
-        bars[1].classList.toggle('opacity-0', navLinks.classList.contains('active'));
-        bars[2].classList.toggle('transform', navLinks.classList.contains('active'));
-        
-        if (navLinks.classList.contains('active')) {
-            bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-            bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-            bars[1].style.opacity = '0';
-        } else {
-            bars[0].style.transform = 'none';
-            bars[2].style.transform = 'none';
-            bars[1].style.opacity = '1';
-        }
-    });
+    if (menuToggle && navLinks && bars.length >= 3) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            bars[0].classList.toggle('transform', navLinks.classList.contains('active'));
+            bars[1].classList.toggle('opacity-0', navLinks.classList.contains('active'));
+            bars[2].classList.toggle('transform', navLinks.classList.contains('active'));
+            if (navLinks.classList.contains('active')) {
+                bars[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                bars[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+                bars[1].style.opacity = '0';
+            } else {
+                bars[0].style.transform = 'none';
+                bars[2].style.transform = 'none';
+                bars[1].style.opacity = '1';
+            }
+        });
+    }
     
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // 关闭移动菜单
-                if (navLinks.classList.contains('active')) {
+                if (navLinks && bars.length >= 3 && navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
                     bars[0].style.transform = 'none';
                     bars[2].style.transform = 'none';
@@ -107,45 +107,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const closePopupBtns = document.querySelectorAll('.close-popup');
     
     // 返回顶部功能
-    backToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
     
     // 显示/隐藏电话弹出框
-    phoneIcon.addEventListener('click', function(e) {
-        e.stopPropagation();
-        phonePopup.classList.toggle('active');
-        wechatPopup.classList.remove('active');
-    });
-    
-    // 显示/隐藏微信弹出框
-    wechatIcon.addEventListener('click', function(e) {
-        e.stopPropagation();
-        wechatPopup.classList.toggle('active');
-        phonePopup.classList.remove('active');
-    });
-    
-    // 关闭弹出框
-    closePopupBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+    if (phoneIcon && wechatIcon && phonePopup && wechatPopup) {
+        phoneIcon.addEventListener('click', function(e) {
             e.stopPropagation();
-            phonePopup.classList.remove('active');
+            phonePopup.classList.toggle('active');
             wechatPopup.classList.remove('active');
         });
-    });
+    
+    // 显示/隐藏微信弹出框
+        wechatIcon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            wechatPopup.classList.toggle('active');
+            phonePopup.classList.remove('active');
+        });
+    
+    // 关闭弹出框
+        closePopupBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                phonePopup.classList.remove('active');
+                wechatPopup.classList.remove('active');
+            });
+        });
     
     // 点击页面其他区域关闭弹出框
-    document.addEventListener('click', function(e) {
-        if (!phonePopup.contains(e.target) && !phoneIcon.contains(e.target)) {
-            phonePopup.classList.remove('active');
-        }
-        if (!wechatPopup.contains(e.target) && !wechatIcon.contains(e.target)) {
-            wechatPopup.classList.remove('active');
-        }
-    });
+        document.addEventListener('click', function(e) {
+            if (!phonePopup.contains(e.target) && !phoneIcon.contains(e.target)) {
+                phonePopup.classList.remove('active');
+            }
+            if (!wechatPopup.contains(e.target) && !wechatIcon.contains(e.target)) {
+                wechatPopup.classList.remove('active');
+            }
+        });
+    }
     
     // ============================
     // 解决方案图片查看功能
@@ -218,6 +222,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // 分页索引（Tab）切换
+    const tabButtons = document.querySelectorAll('.tabs-row .tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panels .tab-panel');
+    if (tabButtons.length && tabPanels.length) {
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                // 激活按钮
+                tabButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // 切换面板
+                tabPanels.forEach(panel => {
+                    panel.classList.toggle('active', `#${panel.id}` === target);
+                });
+            });
+        });
+    }
+    
     // 获取所有指示点
     const dots = document.querySelectorAll('.indicator-dot');
     
@@ -234,6 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 打开模态框
     function openModal() {
+        if (!modal) return;
         updateModalImage();
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -242,12 +265,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 关闭模态框
     function closeImageModal() {
+        if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
     
     // 更新模态框图片
     function updateModalImage() {
+        if (!modalImage) return;
         const currentImage = images[currentIndex];
         modalImage.src = currentImage.full;
         modalImage.alt = currentImage.title;
@@ -278,24 +303,59 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 事件监听
-    closeModal.addEventListener('click', closeImageModal);
-    
-    prevBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        showPrevImage();
-    });
-    
-    nextBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        showNextImage();
-    });
-    
-    // 点击模态框背景关闭
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeImageModal();
-        }
-    });
+    if (modal && modalImage && closeModal && prevBtn && nextBtn) {
+        closeModal.addEventListener('click', closeImageModal);
+        prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showPrevImage();
+        });
+        nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            showNextImage();
+        });
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeImageModal();
+            }
+        });
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                currentIndex = index;
+                updateModalImage();
+                updateDots();
+            });
+        });
+        document.addEventListener('keydown', function(e) {
+            if (!modal.classList.contains('active')) return;
+            switch(e.key) {
+                case 'Escape':
+                    closeImageModal();
+                    break;
+                case 'ArrowLeft':
+                    showPrevImage();
+                    break;
+                case 'ArrowRight':
+                    showNextImage();
+                    break;
+            }
+        });
+        let touchStartX = 0;
+        modal.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        modal.addEventListener('touchend', function(e) {
+            const touchEndX = e.changedTouches[0].screenX;
+            const swipeThreshold = 50;
+            const diffX = touchStartX - touchEndX;
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX > 0) {
+                    showNextImage();
+                } else {
+                    showPrevImage();
+                }
+            }
+        });
+    }
     
     // 点击指示点切换图片
     dots.forEach((dot, index) => {
@@ -383,6 +443,19 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: '福田', logo: 'images/partners/foton.png', full: 'images/partners/foton-full.png' },
         { name: '宇通', logo: 'images/partners/yutong.png', full: 'images/partners/yutong-full.png' }
     ];
+    // 追加本地“合作企业logo-XX.jpg”图片到合作伙伴数据中
+    (function appendLocalPartnerLogos() {
+        const totalLocalLogos = 48;
+        for (let i = 1; i <= totalLocalLogos; i++) {
+            const num = i.toString().padStart(2, '0');
+            const path = `solution image/合作企业logo-${num}.jpg`;
+            partnersData.push({
+                name: `合作企业 ${num}`,
+                logo: path,
+                full: path
+            });
+        }
+    })();
     
     let currentPartnerIndex = 0;
     let currentPage = 1;
@@ -391,6 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 初始化合作伙伴网格
     function initializePartnersGrid() {
+        if (!partnersGrid) return;
         partnersGrid.innerHTML = '';
         
         const startIndex = (currentPage - 1) * itemsPerPage;
@@ -550,6 +624,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 合作伙伴轮播控制
+    if (prevPartnerBtn && nextPartnerBtn && prevPageBtn && nextPageBtn && closePartnerModal && partnerPrevBtn && partnerNextBtn && partnerModal && partnerModalImage && partnerName) {
     prevPartnerBtn.addEventListener('click', function() {
         stopCarousel();
         if (currentCarouselIndex > 0) {
@@ -582,6 +657,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const offset = -currentCarouselIndex * (100 / itemsPerRow);
         partnersGrid.style.transform = `translateX(${offset}%)`;
         startCarousel();
+    });
+    
+    // 为左右按钮追加分页切换（不删除原有行为）
+    prevPartnerBtn.addEventListener('click', function() {
+        goToPrevPage();
+    });
+    nextPartnerBtn.addEventListener('click', function() {
+        goToNextPage();
     });
     
     // 合作伙伴事件监听
@@ -650,6 +733,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    }
     
     // 合作伙伴图片预加载
     function preloadPartnerImages() {
@@ -670,6 +754,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // 伙伴分页自动轮播（按页滚动）
+    let pageCarouselInterval;
+    function startPartnersPageCarousel() {
+        clearInterval(pageCarouselInterval);
+        pageCarouselInterval = setInterval(() => {
+            const totalPages = Math.ceil(partnersData.length / itemsPerPage);
+            currentPage = currentPage % totalPages + 1;
+            initializePartnersGrid();
+        }, 4000);
+    }
+    function stopPartnersPageCarousel() {
+        clearInterval(pageCarouselInterval);
+    }
+    
     // 窗口大小调整监听
     window.addEventListener('resize', adjustCarouselItems);
     
@@ -680,28 +778,27 @@ document.addEventListener('DOMContentLoaded', function() {
     function initializePage() {
         console.log('初始化解决方案页面');
         
-        // 初始化合作伙伴网格
         initializePartnersGrid();
         
-        // 调整轮播项目宽度
         adjustCarouselItems();
         
-        // 页面加载完成后预加载图片
         window.addEventListener('load', function() {
             preloadImages();
             preloadPartnerImages();
             
-            // 开始合作伙伴轮播
             startCarousel();
+            startPartnersPageCarousel();
             
             console.log('页面完全加载完成');
         });
         
-        // 鼠标悬停时停止轮播
-        partnersGrid.addEventListener('mouseenter', stopCarousel);
-        partnersGrid.addEventListener('mouseleave', startCarousel);
+        if (partnersGrid) {
+            partnersGrid.addEventListener('mouseenter', stopCarousel);
+            partnersGrid.addEventListener('mouseleave', startCarousel);
+            partnersGrid.addEventListener('mouseenter', stopPartnersPageCarousel);
+            partnersGrid.addEventListener('mouseleave', startPartnersPageCarousel);
+        }
         
-        // 页面加载动画
         setTimeout(() => {
             document.body.classList.add('loaded');
         }, 100);
